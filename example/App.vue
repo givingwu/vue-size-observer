@@ -1,57 +1,51 @@
 <template>
   <div id="app">
+    <h1 style="text-align: center">vue-size-observer</h1>
     <form>
       <div>
-        <label>Observer enabled:</label>
-        <input type="checkbox" v-model="enabled">
+        <label>Observe size enabled:</label>
+        <input type="checkbox" v-model="enabled" />
       </div>
       <div>
         <label>Toggle element:</label>
-        <input type="checkbox" v-model="toggle">
+        <input type="checkbox" v-model="toggle" />
       </div>
       <div>
         <label>Adjust width:</label>
-        <input type="range" value="600" min="300" max="1300" v-model="width">
+        <input type="range" value="600" min="300" max="1300" v-model="width" />
       </div>
     </form>
 
     <ResizeObserver :disabled="!enabled" @resize="handleResize">
-      <FunctionalProps
-        v-if="toggle"
-        v-bind="test"
-        :style="{ width: computedWidth }"
-      >The width is {{width}} px</FunctionalProps>
+      <FunctionalProps v-if="toggle" v-bind="test" :style="{ width: computedWidth }">{{text}}</FunctionalProps>
 
-      <div
-        style="border: 1px dashed pink"
-        v-else
-        :style="{ width: computedWidth }"
-      >My width is {{width}} px</div>
+      <div style="border: 1px dashed pink" v-else :style="{ width: computedWidth }">{{text}}</div>
     </ResizeObserver>
   </div>
 </template>
 
 <script>
-import FunctionalProps from "./components/FunctionalProps.jsx";
-import ResizeObserver from "./components/ResizeObserver.jsx";
+import FunctionalProps from './components/FunctionalProps.jsx'
+import ResizeObserver from '../src/index'
 
 export default {
-  name: "App",
+  name: 'App',
 
   data() {
     return {
       toggle: true,
+      text: '',
       enabled: true,
       width: 300,
       test: {
         msg:
-          "Hello Guys, This is a props access testing in Vue functional component.",
-        attr: "Test 4 attr",
+          'Hello Guys, This is a props access testing in Vue functional component.',
+        attr: 'Test 4 attr',
         attrs: {
-          attrsMsg: "Test 4 attrs.attr"
+          attrsMsg: 'Test 4 attrs.attr'
         }
       }
-    };
+    }
   },
 
   components: {
@@ -61,21 +55,22 @@ export default {
 
   computed: {
     computedWidth() {
-      return typeof +this.width === "number" ? this.width + "px" : this.width;
+      return typeof +this.width === 'number' ? this.width + 'px' : this.width
     }
   },
 
   methods: {
     handleResize(rect) {
-      console.log("resize", rect.width);
+      console.log('resize', rect.width)
+      this.text = `The width is ${rect.width} px.`
     }
   }
-};
+}
 </script>
 
 <style>
 #app {
-  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;

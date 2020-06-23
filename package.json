@@ -1,7 +1,7 @@
 {
-  "name": "vue-resize-observer",
-  "version": "0.1.0",
-  "private": true,
+  "name": "vue-size-observer",
+  "version": "0.0.1",
+  "private": false,
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
@@ -25,7 +25,10 @@
     "env": {
       "node": true
     },
-    "extends": ["plugin:vue/essential", "eslint:recommended"],
+    "extends": [
+      "plugin:vue/essential",
+      "eslint:recommended"
+    ],
     "rules": {},
     "parserOptions": {
       "parser": "babel-eslint"
@@ -36,7 +39,25 @@
       "autoprefixer": {}
     }
   },
-  "browserslist": ["> 1%", "last 2 versions", "not ie <= 8"],
-  "keywords": [],
-  "description": ""
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 8"
+  ],
+  "keywords": ["size-observer", "resize-observer", "vue-size-observer", "vue-resize-observer"],
+  "description": "A vue component to observe element size changing.",
+  "main": "src/index.jsx",
+  "directories": {
+    "example": "example"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/givingwu/vue-size-observer.git"
+  },
+  "author": " <GivingWu givingwu@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/givingwu/vue-size-observer/issues"
+  },
+  "homepage": "https://github.com/givingwu/vue-size-observer#readme"
 }
