@@ -16,8 +16,17 @@
     </form>
 
     <ResizeObserver :disabled="!enabled" @resize="handleResize">
-      <FunctionalProps v-if="toggle" v-bind="test" :style="{ width: computedWidth }"/>
-      <div v-else :style="{ width: computedWidth }">I am the another one</div>
+      <FunctionalProps
+        v-if="toggle"
+        v-bind="test"
+        :style="{ width: computedWidth }"
+      >The width is {{width}} px</FunctionalProps>
+
+      <div
+        style="border: 1px dashed pink"
+        v-else
+        :style="{ width: computedWidth }"
+      >My width is {{width}} px</div>
     </ResizeObserver>
   </div>
 </template>
