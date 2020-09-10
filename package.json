@@ -12,7 +12,6 @@
   ],
   "dependencies": {
     "resize-observer-polyfill": "1.5.1",
-    "vue": "^2.6.11"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "4.1.1",
