@@ -7,19 +7,17 @@ export default {
     disabled: Boolean
   },
 
-  data() {
-    return {
-      width: 0,
-      height: 0
-    }
-  },
-
   mounted() {
     this.onUpdated()
   },
 
   updated() {
     this.onUpdated()
+  },
+
+  created() {
+    this.width = 0
+    this.height = 0
   },
 
   beforeDestroy() {
@@ -84,6 +82,7 @@ export default {
       if (!this.__ro__ && element) {
         this.__ro__ = new ResizeObserver(this.onResize)
         this.__ro__.observe(element)
+        this.onResize([{ target: element }])
       }
     },
 
