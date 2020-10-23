@@ -3,6 +3,8 @@ import ResizeObserver from 'resize-observer-polyfill'
 export default {
   name: 'ResizeObserver',
 
+  abstract: true,
+
   props: {
     disabled: Boolean
   },
