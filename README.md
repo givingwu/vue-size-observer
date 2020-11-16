@@ -19,12 +19,12 @@ export default {
   render() {
     return (
       <ResizeObserver
-        onResize={() => {
-          console.log('resized!');
+        onResize={(rect) => {
+          console.log('resized!', rect);
         }}
       >
         <textarea />
-      </ResizeObserver>,
+      </ResizeObserver>
     )
   }
 }
